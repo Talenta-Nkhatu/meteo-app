@@ -10,24 +10,26 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
     <title>Meteo App</title>
   </head>
   <body>
     <div class="body-content">
       <header>
-        <form class="search-form">
+        <form class="search-form" id="search-form">
           <input
             type="search"
             placeholder="Enter a city.."
             required
             class="search-form-input"
+            id="search-form-input"
           />
           <input type="submit" value="search" class="search-form-button" />
         </form>
       </header>
       <main>
         <div>
-          <h1 class="city-name">Cape Town</h1>
+          <h1 class="city-name" id="city">Cape Town</h1>
           <p class="city-info">
             Tuesday 12:47, mostly cloudy
             <br />
@@ -56,4 +58,5 @@
       </footer>
     </div>
   </body>
+  <script src="src/index.js"></script>
 </html>
