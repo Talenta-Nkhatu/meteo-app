@@ -52,11 +52,11 @@ main {
   font-size: 88px;
   line-height: 88px;
   font-weight: bold;
-  margin-left: 5px;
+  margin-left: 4px;
 }
 
 .city-temp-unit {
-  font-size: 20pxpx;
+  font-size: 30px;
   margin-top: 12px;
 }
 
