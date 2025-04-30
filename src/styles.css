@@ -1,6 +1,10 @@
 body {
-  background-color: lightskyblue;
+  background-color: rgb(173, 208, 219);
+
   font-family: "Roboto", sans-serif;
+}
+a {
+  color: #2196f3;
 }
 .body-content {
   background-color: white;
@@ -9,4 +13,74 @@ body {
   padding: 30px;
   border-radius: 16px;
   box-shadow: 0 30px 50px rgba(65, 50, 100, 0.08);
+}
+header {
+  border-bottom: 1px solid #f9f7fe;
+  padding: 0 0 30px 0;
+}
+main {
+  padding: 30px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.city-name {
+  font-size: 38px;
+  line-height: 48px;
+  margin: 0;
+}
+.city-info strong {
+  color: #f65282;
+}
+
+.city-info {
+  color: rgba(39, 33, 66, 0.4);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+}
+
+.city-temperature {
+  display: flex;
+}
+
+.city-temp-icon {
+  font-size: 48px;
+  margin-top: 10px;
+}
+
+.city-temp-value {
+  font-size: 88px;
+  line-height: 88px;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.city-temp-unit {
+  font-size: 20pxpx;
+  margin-top: 12px;
+}
+
+.search-form-input {
+  background-color: #f9f7fe;
+  border: none;
+  border-radius: 6px;
+  width: 80%;
+  font-size: 16px;
+  padding: 15px 20px;
+}
+.search-form-button {
+  background-color: #2196f3;
+  border: none;
+  font-size: 16px;
+  border-radius: 6px;
+  margin-left: 5px;
+  padding: 15px 20px;
+  color: white;
+}
+footer {
+  border-bottom: 1px solid #f9f7fe;
+  padding: 30px 0 0 0;
+  font-size: 14px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.6);
 }
