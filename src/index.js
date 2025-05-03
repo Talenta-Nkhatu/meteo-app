@@ -7,19 +7,23 @@ function showTemperature(response) {
   cityElement.innerHTML = response.data.city;
 
   let descriptionElement = document.querySelector("#description");
-  descriptionElement.innerHTML = `, ${response.data.condition.description}`;
+  descriptionElement.innerHTML = `${response.data.condition.description}`;
   console.log(response);
 
   let humidityElement = document.querySelector("#humidity");
-  humidityElement.innerHTML = `${response.data.temperature.humidity}%,`;
+  humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
 
   let windspeedElement = document.querySelector("#wind-speed");
   windspeedElement.innerHTML = `${response.data.wind.speed} km/h`;
 
   let date = new Date(response.data.time * 1000);
-  console.log(date);
   let timeElement = document.querySelector("#time");
-  timeElement.innerHTML = formattedDay(date);
+  timeElement.innerHTML = `${formattedDay(date)},`;
+
+  let iconElement = document.querySelector("#icon");
+  iconElement.innerHTML = `<img
+      class="city-icon"
+      src="${response.data.condition.icon_url}" />`;
 }
 
 function formattedDay(date) {
@@ -46,9 +50,6 @@ function formattedDay(date) {
 
   if (minutes < 10) {
     minutes = `0${minutes}`;
-  }
-  if (hours < 10) {
-    hours = `0${hours}`;
   }
 
   return `${day} ${month} ${date.getDate()} ${date.getFullYear()} ${hours}:${minutes}`;

@@ -42,6 +42,10 @@ main {
   font-weight: bold;
   font-size: 20px;
 }
+.city-icon {
+  width: 88px;
+  height: 88px;
+}
 
 .city-temperature {
   display: flex;
@@ -49,7 +53,7 @@ main {
 
 .city-temp-icon {
   font-size: 48px;
-  margin-top: 10px;
+  margin-top: 4px;
 }
 
 .city-temp-value {
