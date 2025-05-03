@@ -38,6 +38,10 @@ main {
   line-height: 24px;
   font-weight: 500;
 }
+.city-time {
+  font-weight: bold;
+  font-size: 20px;
+}
 
 .city-temperature {
   display: flex;
