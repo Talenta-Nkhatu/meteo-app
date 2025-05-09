@@ -65,5 +65,25 @@ function handleSearchForm(event) {
   axios.get(apiUrl).then(showTemperature);
 }
 
+function displayForecast() {
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  let forecastHtml = "";
+
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      `<div class="weather-forecast">
+          <div class="weather-forecast-day">${day}</div>
+          <div class="weather-forecast-icon">🌤</div>
+          <div class="weather-forecast-temperature">
+            <div class="temp-1"><strong>21°</strong></div>
+            <div class="temp-1">13°</div>
+          </div>`;
+  });
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = forecastHtml;
+}
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSearchForm);
+
+displayForecast();
