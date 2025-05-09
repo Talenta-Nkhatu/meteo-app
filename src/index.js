@@ -24,6 +24,9 @@ function showTemperature(response) {
   iconElement.innerHTML = `<img
       class="city-icon"
       src="${response.data.condition.icon_url}" />`;
+
+  getForecast(response.data.city);
+  console.log(getForecast);
 }
 
 function formattedDay(date) {
@@ -64,20 +67,36 @@ function handleSearchForm(event) {
 
   axios.get(apiUrl).then(showTemperature);
 }
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[date.getDay()];
+}
+function getForecast(city) {
+  let apiKey = "8944f371f4bfa78290t3baa86a330do0";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
 
-function displayForecast() {
-  let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+function displayForecast(response) {
   let forecastHtml = "";
 
-  days.forEach(function (day) {
-    forecastHtml =
-      forecastHtml +
-      `<div class="weather-forecast">
-          <div class="weather-forecast-day">${day}</div>
-          <div class="weather-forecast-icon">🌤</div>
+  response.data.daily.forEach(function (day, index) {
+    if (index < 6)
+      forecastHtml =
+        forecastHtml +
+        `<div class="weather-container"> 
+      <div class="weather-forecast">
+          <div class="weather-forecast-day">${formatDay(day.time)}</div>
+          <div class="weather-forecast-icon"> <img src="${
+            day.condition.icon_url
+          }" class="weather-forecast-icon" /> </div>
           <div class="weather-forecast-temperature">
-            <div class="temp-1"><strong>21°</strong></div>
-            <div class="temp-1">13°</div>
+            <div class="temp-1"><strong>${Math.round(
+              day.temperature.maximum
+            )}°</strong></div>
+            <div class="temp-1">${Math.round(day.temperature.minimum)}°</div>
+          </div>
           </div>`;
   });
   let forecastElement = document.querySelector("#forecast");
@@ -87,3 +106,4 @@ let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSearchForm);
 
 displayForecast();
+getForecast();
