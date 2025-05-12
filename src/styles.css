@@ -88,8 +88,8 @@ main {
 
 .weather-container {
   display: flex;
-  margin-top: 0 auto;
-  justify-content: space-between;
+  margin-top: 10 auto;
+  justify-content: space-around;
   align-items: center;
 }
 .weather-forecast-day {
